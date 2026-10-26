@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Matriz de Transición MB 2026</title>
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/tablero.css">
+  <script src="assets/js/d3.v7.9.0.min.js"></script>
+  <script src="data/cierres.js"></script>
+  <script src="assets/js/motor.js"></script>
+</head>
+<body>
+<div id="dash-root">
+<div class="mt" id="matriz-mb">
+  <header class="mt-hero" id="encabezado">
+    <img class="mt-logo" alt="Masbisne" src="data:image/png;base64,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">
+    <div class="mt-hero-txt">
+      <h1>Matriz de transición <b>MB</b> · 2026</h1>
+      <p class="mt-take dash-skeleton" id="mt-take" data-source="cierres">—</p>
+    </div>
+    <nav class="mt-tabs" role="tablist" aria-label="Secciones">
+      <button type="button" role="tab" id="tab-matriz" data-tab="matriz">Matriz</button>
+      <button type="button" role="tab" id="tab-evolucion" data-tab="evolucion">Evolución mensual</button>
+    </nav>
+  </header>
+
+  <section class="mt-filters" id="filtros" aria-label="Filtros" data-source="cierres">
+    <div class="mt-f"><label for="f-periodo">Periodo</label><select id="f-periodo"></select></div>
+    <div class="mt-f"><label for="f-region">Región</label><select id="f-region"></select></div>
+    <div class="mt-f"><label for="f-sucursal">Sucursal</label><select id="f-sucursal"></select></div>
+    <div class="mt-f"><label for="f-analista">Analista</label><select id="f-analista"></select></div>
+    <div class="mt-f"><label for="f-producto">Producto</label><select id="f-producto"></select></div>
+    <div class="mt-f"><label for="f-tipo">Tipo de crédito</label><select id="f-tipo"></select></div>
+    <div class="mt-f"><span class="mt-lbl">Medida</span>
+      <div class="mt-seg" role="group" aria-label="Medida">
+        <button type="button" id="m-ctas" data-m="ctas">Cuentas</button>
+        <button type="button" id="m-saldo" data-m="saldo">Saldo</button>
+      </div>
+    </div>
+    <div class="mt-f"><button type="button" class="mt-reset" id="f-reset">Restablecer</button></div>
+  </section>
+
+  <div class="mt-pane" id="pane-matriz">
+    <section class="mt-card mt-guide" id="guia">
+      <h2>Cómo leer la matriz de transición</h2>
+      <p class="mt-guide-lead" id="mt-guide-lead">En el documento adjunto se presenta el comportamiento de los créditos identificados al cierre de septiembre, así como su evolución durante el mes de octubre.</p>
+      <p class="mt-note mt-guide-body">La matriz compara dos fotografías de la misma cartera. Cada <b>fila</b> agrupa los créditos según sus días de atraso al cierre del mes; cada <b>columna</b> indica en qué banda quedaron al cierre del mes siguiente. Por eso cada fila suma 100%: muestra hacia dónde se movieron esos créditos. El color de la celda dice qué tipo de movimiento fue:</p>
+      <ul class="mt-guide-list">
+        <li><i style="background:#99FF66"></i><span><b>Mantuvo</b>: siguió en la misma banda de atraso (la diagonal).</span></li>
+        <li><i style="background:#FF584B"></i><span><b>Deteriora</b>: pasó a una banda con más días de atraso (a la derecha de la diagonal).</span></li>
+        <li><i style="background:#FFFF99"></i><span><b>Recupera</b>: bajó a una banda con menos atraso, sin llegar a estar al corriente.</span></li>
+        <li><i style="background:#99CCFF"></i><span><b>Normaliza</b>: tenía atraso y regresó a vigente (0 días).</span></li>
+        <li><i style="background:#FFCCCC"></i><span><b>Liquidado</b>: el crédito se pagó por completo.</span></li>
+        <li><i style="background:#CC99FF"></i><span><b>Castigado</b>: el crédito se dio de baja como pérdida.</span></li>
+      </ul>
+      <p class="mt-note mt-guide-ex" id="mt-guide-ex" data-source="cierres"></p>
+    </section>
+    <section class="mt-kpis" id="indicadores" data-source="cierres"></section>
+    <section class="mt-card" id="matriz">
+      <div class="mt-row">
+        <div>
+          <h2 id="mt-mat-title">Matriz de transición</h2>
+          <p class="mt-note">Filas: banda al cierre del mes anterior. Columnas: banda actual. Cada celda muestra el % de la fila y, debajo, el valor.</p>
+        </div>
+        <div class="mt-legend" id="mt-legend"></div>
+      </div>
+      <div class="mt-scroll" id="mt-matrix" data-source="cierres"></div>
+    </section>
+    <section class="mt-card" id="estatus">
+      <h2 id="mt-est-title">Resumen por estatus</h2>
+      <p class="mt-note">Por banda de cierre del mes anterior: % de la fila y, debajo, el valor.</p>
+      <div class="mt-scroll" id="mt-est" data-source="cierres"></div>
+    </section>
+  </div>
+
+  <div class="mt-pane" id="pane-evolucion" hidden>
+    <section class="mt-card" id="evo-controles">
+      <div class="mt-row">
+        <div>
+          <h2>Evolución mensual ene–sep 2026</h2>
+          <p class="mt-note">Todos los meses con los filtros de arriba (el periodo solo marca el mes destacado). Elige una banda inicial para ver solo esa fila de la matriz.</p>
+        </div>
+        <div class="mt-f" style="min-width:min(100%,14rem)"><label for="f-banda">Banda inicial</label><select id="f-banda"></select></div>
+      </div>
+    </section>
+    <section class="mt-kpis" id="evo-kpis" data-source="cierres"></section>
+    <div class="mt-grid2">
+      <section class="mt-card" id="evo-dist">
+        <h2>Distribución por estatus, mes a mes</h2>
+        <p class="mt-note">Cada barra suma 100% de la cartera inicial del mes. Haz clic en un mes para destacarlo y verlo en la matriz.</p>
+        <div class="mt-chart" id="mt-evo" data-source="cierres"></div>
+      </section>
+      <section class="mt-card" id="evo-tend">
+        <h2>Tendencia de cada estatus</h2>
+        <p class="mt-note">% de la cartera inicial por mes. Activa o quita estatus; Mantuvo inicia oculto para que se aprecien los demás.</p>
+        <div class="mt-legend" id="mt-line-leg"></div>
+        <div class="mt-chart" id="mt-line" data-source="cierres"></div>
+      </section>
+    </div>
+    <div class="mt-grid2">
+      <section class="mt-card" id="evo-heat">
+        <div class="mt-row">
+          <div>
+            <h2 id="mt-heat-title">Mapa de calor por banda</h2>
+            <p class="mt-note">% de cada banda inicial que tuvo el estatus elegido, por mes. Más intenso = mayor proporción.</p>
+          </div>
+          <div class="mt-f" style="min-width:min(100%,12rem)"><label for="f-heat">Estatus</label><select id="f-heat"></select></div>
+        </div>
+        <div class="mt-scroll" id="mt-heat" data-source="cierres"></div>
+      </section>
+      <section class="mt-card" id="evo-vol">
+        <h2 id="mt-vol-title">Cartera inicial por mes</h2>
+        <p class="mt-note">Volumen con el que arranca cada matriz, en la medida elegida.</p>
+        <div class="mt-chart sm" id="mt-vol" data-source="cierres"></div>
+      </section>
+    </div>
+    <section class="mt-card" id="comparativo">
+      <h2 id="mt-cmp-title">Comparativo mensual de la matriz</h2>
+      <p class="mt-note">La fila de la matriz de la banda elegida, mes a mes. Haz clic en una fila para cambiar el periodo.</p>
+      <div class="mt-scroll" id="mt-cmp" data-source="cierres"></div>
+    </section>
+  </div>
+
+  <p class="mt-note" id="notas">Fuente: MATRIZ MB.xlsx (base Cierres, 83,654 registros, ene–sep 2026). Cuentas = número de créditos; Saldo = saldo capital. Nombres con acentos mal codificados unificados; tipo de crédito vacío = (SIN DATO).</p>
+</div>
+</div>
+<script src="assets/js/tablero.js"></script>
+</body>
+</html>
